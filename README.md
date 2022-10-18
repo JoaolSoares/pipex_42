@@ -1,2 +1,2 @@
 # pipex_42
-The sixthproject from 42
+pipex - The  sixth project from 42 - created by jlucas-s 
