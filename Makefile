@@ -6,7 +6,7 @@
 #    By: jlucas-s <jlucas-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/14 02:51:40 by jlucas-s          #+#    #+#              #
-#    Updated: 2022/10/18 01:57:32 by jlucas-s         ###   ########.fr        #
+#    Updated: 2022/10/19 18:58:25 by jlucas-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBFT = ./lib/libft.a
 
 SRCS =	src/main.c \
 		src/validations.c \
-		src/read.c \
+		src/opens.c \
 		src/allocs.c \
 
 all: ${NAME}

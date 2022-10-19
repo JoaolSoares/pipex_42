@@ -6,7 +6,7 @@
 /*   By: jlucas-s <jlucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 22:03:08 by jlucas-s          #+#    #+#             */
-/*   Updated: 2022/10/18 02:28:17 by jlucas-s         ###   ########.fr       */
+/*   Updated: 2022/10/19 18:55:52 by jlucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_pipex
 char	*get_content(char *infile);
 
 // VALIDATION FUNCTIONS
-void	valid_arg(int argc, char *argv[]);
+void	valid_arg(int argc);
 
 // ALLOC FUNCTIONS
 t_pipex	*init_allocs(void);
