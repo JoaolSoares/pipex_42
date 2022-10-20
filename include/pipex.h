@@ -6,7 +6,7 @@
 /*   By: jlucas-s <jlucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 22:03:08 by jlucas-s          #+#    #+#             */
-/*   Updated: 2022/10/20 03:48:25 by jlucas-s         ###   ########.fr       */
+/*   Updated: 2022/10/21 01:47:44 by jlucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 //	INCLUDES 
 # include <sys/types.h>
 # include <sys/stat.h>
- #include <sys/wait.h>
+# include <sys/wait.h>
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -32,16 +32,9 @@ typedef struct s_pipex
 	
 }	t_pipex;
 
-// READ FUNCTIONS
-char	*get_content(char *infile);
+// EXEC FUNCTIONS
+void	exec_comand(char *argv, char **envp);
 
-// VALIDATION FUNCTIONS
-void	valid_arg(int argc);
-
-void	exec_comand(t_pipex *pipex, char **argv, char **envp);
-
-// ALLOC FUNCTIONS
-// t_pipex	*init_allocs(void);
-// void	free_all(t_pipex *pipex);
+// fazer uma func pra dar free no split da exec
 
 #endif
