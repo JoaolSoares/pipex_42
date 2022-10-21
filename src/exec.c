@@ -6,7 +6,7 @@
 /*   By: jlucas-s <jlucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 01:29:23 by jlucas-s          #+#    #+#             */
-/*   Updated: 2022/10/21 01:35:12 by jlucas-s         ###   ########.fr       */
+/*   Updated: 2022/10/21 01:54:35 by jlucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,5 @@ void	exec_comand(char *argv, char **envp)
 		free(path);
 		i++;
 	}
+	exit (40);
 }
