@@ -6,11 +6,24 @@
 /*   By: jlucas-s <jlucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 01:29:23 by jlucas-s          #+#    #+#             */
-/*   Updated: 2022/10/21 01:54:35 by jlucas-s         ###   ########.fr       */
+/*   Updated: 2022/10/24 23:02:41 by jlucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
+
+static void	free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{	
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
 
 static char	**find_paths(char **envp)
 {
@@ -26,7 +39,7 @@ static char	**find_paths(char **envp)
 
 void	exec_comand(char *argv, char **envp)
 {
-	char	**cmd;
+	char	**cmd;	
 	char	**possible_paths;
 	int		i;
 	char	*path;
@@ -41,5 +54,7 @@ void	exec_comand(char *argv, char **envp)
 		free(path);
 		i++;
 	}
+	free_split(cmd);
+	free(possible_paths);
 	exit (40);
 }
