@@ -26,6 +26,4 @@ void	exec_comand(char *argv, char **envp);
 // FORK FUNCTIONS
 void	fork_process(int *pipefd, int *fd, char *argv[], char *envp[]);
 
-// QUANDO TEM UM COMANDO ERRADO ELE DA LEAK
-
 #endif
