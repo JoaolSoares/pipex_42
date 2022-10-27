@@ -2,5 +2,6 @@ infile
 outfile
 a.out
 *.o
-tester
 .vscode
+bonus
+pipex_bonus.h

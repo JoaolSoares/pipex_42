@@ -6,7 +6,7 @@
 /*   By: jlucas-s <jlucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 01:29:23 by jlucas-s          #+#    #+#             */
-/*   Updated: 2022/10/27 00:01:32 by jlucas-s         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:54:27 by jlucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,19 @@ static char	**find_paths(char **envp)
 	return (paths);
 }
 
-static char **split_command(char *argv)
+static void	specific_cases(char **cmd)
+{
+	if (!ft_strncmp(cmd[0], "tr", ft_strlen(cmd[0])))
+	{
+		cmd[1] = ft_borderchar(cmd[1], 39);
+		cmd[2] = ft_borderchar(cmd[2], 39);
+	}
+	else if (!ft_strncmp(cmd[0], "echo", ft_strlen(cmd[0])) && \
+			cmd[1][0] == 39 && cmd[1][ft_strlen(cmd[1] - 1)] == 39)
+		cmd[1] = ft_substr(cmd[1], 1, (ft_strlen(cmd[1]) - 2));
+}
+
+static char	**split_command(char *argv)
 {
 	char	*temp_cmd;
 	int		i;
@@ -47,7 +59,8 @@ static char **split_command(char *argv)
 		if (temp_cmd[i] == 39)
 		{
 			i++;
-			while (temp_cmd[i] != 39 && temp_cmd[i++]);
+			while (temp_cmd[i] != 39 && temp_cmd[i])
+				i++;
 			i++;
 		}
 		if (temp_cmd[i] == ' ')
@@ -56,6 +69,7 @@ static char **split_command(char *argv)
 			i++;
 	}
 	cmd = ft_split(temp_cmd, -1);
+	specific_cases(cmd);
 	free(temp_cmd);
 	return (cmd);
 }
@@ -68,14 +82,6 @@ void	exec_comand(char *argv, char **envp, int saved_stdout)
 	char	*path;
 
 	cmd = split_command(argv);
-	if (!ft_strncmp(cmd[0], "tr", ft_strlen(cmd[0])))
-	{
-		cmd[1] = ft_borderchar(cmd[1], 39);
-		cmd[2] = ft_borderchar(cmd[2], 39);
-	}
-	else if (!ft_strncmp(cmd[0], "echo", ft_strlen(cmd[0])) && \
-			cmd[1][0] == 39 && cmd[1][ft_strlen(cmd[1] - 1)] == 39)
-			cmd[1] = ft_substr(cmd[1], 1, (ft_strlen(cmd[1]) - 2));
 	possible_paths = find_paths(envp);
 	i = 0;
 	while (possible_paths[i])

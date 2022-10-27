@@ -6,7 +6,7 @@
 /*   By: jlucas-s <jlucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 22:25:52 by jlucas-s          #+#    #+#             */
-/*   Updated: 2022/10/25 23:29:08 by jlucas-s         ###   ########.fr       */
+/*   Updated: 2022/10/27 13:55:34 by jlucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ void	open_file(t_fd *fd, char *argv[])
 	fd->fd[1] = open(argv[4], O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	if (fd->fd[0] < 0 || fd->fd[1] < 0)
 	{
-		ft_printf("File Error!\n");
+		if (fd->fd[0] < 0)
+			ft_printf("File Error: %s\n", argv[1]);
+		if (fd->fd[1] < 0)
+			ft_printf("File Error: %s\n", argv[4]);
 		free(fd);
 		exit(20);
 	}
