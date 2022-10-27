@@ -3,5 +3,3 @@ outfile
 a.out
 *.o
 .vscode
-bonus
-pipex_bonus.h
