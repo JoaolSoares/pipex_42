@@ -6,7 +6,7 @@
 /*   By: jlucas-s <jlucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 21:55:50 by jlucas-s          #+#    #+#             */
-/*   Updated: 2022/10/12 22:19:34 by jlucas-s         ###   ########.fr       */
+/*   Updated: 2022/10/26 23:40:02 by jlucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ char		**ft_split(char const *s, char c);
 
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+char		*ft_borderchar(char *str, char border);
 
 /* PUT_FUNCTIONS */
 void		ft_putchar_fd(char c, int fd);

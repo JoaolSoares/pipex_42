@@ -1,3 +1,6 @@
 infile
 outfile
+a.out
+*.o
 tester
+.vscode

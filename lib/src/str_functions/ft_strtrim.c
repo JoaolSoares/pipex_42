@@ -6,7 +6,7 @@
 /*   By: jlucas-s <jlucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 00:46:34 by jlucas-s          #+#    #+#             */
-/*   Updated: 2022/10/12 22:17:29 by jlucas-s         ###   ########.fr       */
+/*   Updated: 2022/10/26 23:51:55 by jlucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (str);
 }
 
-/*
+/* 
 #include <stdio.h>
 int main(void)
 {
@@ -75,4 +75,4 @@ int main(void)
 	printf("  s1: %s\n  set: %s\ntrim:\n%s\n", s1, set, ft_strtrim(s1, set));
 	return 0;
 }
-*/
+ */

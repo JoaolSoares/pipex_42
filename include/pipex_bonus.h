@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlucas-s <jlucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 22:03:08 by jlucas-s          #+#    #+#             */
-/*   Updated: 2022/10/25 23:21:51 by jlucas-s         ###   ########.fr       */
+/*   Updated: 2022/10/25 23:57:21 by jlucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 
 //	INCLUDES 
 # include <sys/types.h>
@@ -32,7 +32,8 @@ typedef struct s_fd
 void	exec_comand(char *argv, char **envp, int saved_stdout);
 
 // FORK FUNCTIONS
-void	first_child(t_fd *fd, char *argv[], char *envp[]);
-void	second_child(t_fd *fd, char *argv[], char *envp[]);
+void	first_child(t_fd *fd, char *argv, char *envp[]);
+void	middle_child(t_fd *fd, char *argv, char *envp[]);
+void	final_child(t_fd *fd, char *argv, char *envp[]);
 
 #endif

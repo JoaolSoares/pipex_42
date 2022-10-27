@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec.c                                             :+:      :+:    :+:   */
+/*   exec_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlucas-s <jlucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 01:29:23 by jlucas-s          #+#    #+#             */
-/*   Updated: 2022/10/24 23:02:41 by jlucas-s         ###   ########.fr       */
+/*   Updated: 2022/10/26 00:03:14 by jlucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "../../include/pipex_bonus.h"
 
 static void	free_split(char **split)
 {
@@ -18,10 +18,7 @@ static void	free_split(char **split)
 
 	i = 0;
 	while (split[i])
-	{	
-		free(split[i]);
-		i++;
-	}
+		free(split[i++]);
 	free(split);
 }
 
@@ -37,9 +34,9 @@ static char	**find_paths(char **envp)
 	return (paths);
 }
 
-void	exec_comand(char *argv, char **envp)
+void	exec_comand(char *argv, char **envp, int saved_stdout)
 {
-	char	**cmd;	
+	char	**cmd;
 	char	**possible_paths;
 	int		i;
 	char	*path;
@@ -49,12 +46,13 @@ void	exec_comand(char *argv, char **envp)
 	i = 0;
 	while (possible_paths[i])
 	{
-		path = ft_strjoin(ft_strjoin(possible_paths[i], "/"), cmd[0]);
+		path = ft_strjoin(ft_strjoin(possible_paths[i++], "/"), cmd[0]);
 		execve(path, cmd, envp);
 		free(path);
-		i++;
 	}
+	dup2(saved_stdout, STDOUT_FILENO);
+	close(saved_stdout);
+	ft_printf("%s: Command Not Found\n", cmd[0]);
 	free_split(cmd);
 	free(possible_paths);
-	exit (40);
 }
