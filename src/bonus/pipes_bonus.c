@@ -6,7 +6,7 @@
 /*   By: jlucas-s <jlucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:52:24 by jlucas-s          #+#    #+#             */
-/*   Updated: 2022/10/30 17:15:59 by jlucas-s         ###   ########.fr       */
+/*   Updated: 2022/11/01 00:47:49 by jlucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	close_pipes(int **pipes, int num, int opt)
 	i = 0;
 	while (i < num)
 	{
-		close(pipes[i][0]);
+		close(pipes[i][1]);
 		if (opt == 1)
-			close(pipes[i][1]);
+			close(pipes[i][0]);
 		free(pipes[i]);
 		i++;
 	}

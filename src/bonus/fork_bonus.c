@@ -6,7 +6,7 @@
 /*   By: jlucas-s <jlucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 22:07:33 by jlucas-s          #+#    #+#             */
-/*   Updated: 2022/10/31 21:32:25 by jlucas-s         ###   ########.fr       */
+/*   Updated: 2022/11/01 00:47:35 by jlucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	first_child(t_fd *fd, char *argv, char *envp[])
 		saved_stdout = dup(STDOUT_FILENO);
 		dup2(fd->filefd[0], STDIN_FILENO);
 		dup2(fd->pipefd[0][1], STDOUT_FILENO);
-		close_pipes(fd->pipefd, fd->num_pipes, 0);
+		close_pipes(fd->pipefd, fd->num_pipes, 1);
 		exec_comand(argv, envp, saved_stdout);
 		free(fd);
 		exit(31);
