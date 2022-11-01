@@ -6,7 +6,7 @@
 #    By: jlucas-s <jlucas-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/14 02:51:40 by jlucas-s          #+#    #+#              #
-#    Updated: 2022/10/27 16:52:52 by jlucas-s         ###   ########.fr        #
+#    Updated: 2022/10/31 22:18:30 by jlucas-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS =			src/mandatory/main.c \
 SRCS_BONUS =	src/bonus/main_bonus.c \
 				src/bonus/fork_bonus.c \
 				src/bonus/exec_bonus.c \
+				src/bonus/pipes_bonus.c \
 
 OBJS =			${SRCS:.c=.o}
 OBJS_BONUS =	${SRCS_BONUS:.c=.o}
@@ -56,6 +57,8 @@ fclean: rmv clean
 
 re: fclean all
 
-refast: rmv all
+refast: rmv all clean
 
-.PHONY: all bonus clean rmv fclean re refast
+rebofast: rmv bonus clean
+
+.PHONY: all bonus clean rmv fclean re refast rebofast
